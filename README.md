@@ -27,7 +27,7 @@ This repository contained 1 cleaned .csv dataset file and 1 .malloynb file where
 |--------|-----------|
 | `TotalStatesinDataSet` | <img src="TotalStatesinDataSet.png" width="50%"> |
 | `CombinedLossHeatMap` | <img src="CombinedLossHeatMap.png" width="50%"> |
-| `AmountLossByBusinessActivity` | <img src="AmountLossByBusinessActivity.png" width="50%"> |
+| `AmountLostByBusinessActivity` | <img src="AmountLostByBusinessActivity.png" width="50%"> |
 | `AmountLostByLossType` | <img src="AmountLostByLossType.png" width="50%"> |
 | `CombinedLoss2019` | <img src="CombinedLoss2019.png" width="50%"> |
 | `CombinedLoss2020` | <img src="CombinedLoss2020.png" width="50%"> |
