@@ -5,7 +5,7 @@ This repository provides the viewer with data compiled by the Data Liberation Pr
 ## Code
 
 This repository contained 1 cleaned .csv dataset file and 1 .malloynb file where my code and analysis can be viewed.
-  [`chem-quantity-lost.csv](chem-quantity-lost.csv), is the file containing the "tidy" data that was used for analysis.
+  [`chem-quantity-lost.csv`](chem-quantity-lost.csv), is the file containing the "tidy" data that was used for analysis.
   
   [`FavoritoDataLiberation.malloynb`](FavoritoDataLiberation.malloynb), is where my analysis on the Theft/Loss of Controlled Substances was performed and is displayed.
 
@@ -34,7 +34,7 @@ This repository contained 1 cleaned .csv dataset file and 1 .malloynb file where
 | `CombinedLoss2021` | <img src="CombinedLoss2021.png" width="50%"> |
 | `CombinedLossJan-Sept2022` | <img src="CombinedLossJan-Sept2022.png" width="50%"> |
 
-## Description of how other can build off this work
+## Description of how others can build off this work
 
 This analysis provides a foundational framework for exploring controlled substance loss using structured visualizations and aggregated metrics. Others can build on this work by integrating additional datasets—such as population statistics, healthcare provider density, or regulatory actions—to normalize losses and identify potential risk factors.
 Further enhancements could include developing time-series analyses to detect trends or anomalies, creating predictive models for future loss patterns, or implementing interactive dashboards for real-time monitoring. Additionally, filtering the data by substance type, geographic region, or specific business categories could support more targeted investigations and policy recommendations.
