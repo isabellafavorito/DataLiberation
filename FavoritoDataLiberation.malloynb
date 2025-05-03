@@ -1,0 +1,75 @@
+>>>malloy
+source: chem_quantity_loss is duckdb.table('./chem-quantity-lost.csv')
+    extend {
+    measure:
+    total_milliliters_lost is sum(milliliter)
+    total_units_lost is sum(unit)
+    combined_loss is sum(milliliter) + sum(unit)
+    total_states is count(state)
+
+    view: by_state is {
+    group_by: 
+        state
+    aggregate: combined_loss
+   }
+
+   # shape_map
+   view: by_state_shaped is by_state
+
+    }
+>>>markdown
+**(1)** This dataset includes data from the years 2019, 2020, 2021, and 2022. However, the data for 2022 is only partially included, covering the months from January through September. 
+>>>malloy
+run: chem_quantity_loss -> {
+    aggregate: 
+        StartDate is min(period)
+        EndDate is max(period)
+}
+>>>markdown
+**(2)** The dataset contains records from 45 U.S. statesm providing broad geographic coverage across the country.
+>>>malloy
+run: chem_quantity_loss -> {
+    aggregate: total_states
+}
+>>>markdown
+**(3)** The following code displays the total amount of controled substance loss reported by each state included in the dataset.
+>>>malloy
+run: chem_quantity_loss -> {
+    group_by: state
+    aggregate: combined_loss
+    order_by: combined_loss desc
+
+}
+>>>markdown
+**(4)** The following code generates a heat map highlighting the U.S. states affected by controlled substance loss. The color intensity corresponds to the severity of the loss, with darker shades indicating higher total losses.
+>>>malloy
+run: chem_quantity_loss->by_state_shaped
+>>>markdown
+**(5)** The below code produces a bar chart grouped by reporting period, showing the total combined loss of controlled substances for each period. 
+>>>malloy
+# bar_chart
+run: chem_quantity_loss -> {
+    group_by: period
+    aggregate: combined_loss
+    order_by: period desc
+}
+>>>markdown
+**(6)** The following code displays a breakdown of total milliliters lost, total units lost, and the total combined loss amount. It is grouped by each type of loss reported in the dataset.
+>>>malloy
+run: chem_quantity_loss -> {
+  group_by: loss_type
+  aggregate: total_milliliters_lost
+  aggregate: total_units_lost
+  aggregate: combined_loss
+  order_by: total_units_lost desc  
+}
+>>>markdown
+**(7)** The following code displays a breakdown of total milliliters lost, total units lost, and the total combined loss amount. It is grouped by each type of business activity reported in the dataset.
+>>>malloy
+run: chem_quantity_loss -> {
+    group_by: business_activity
+    aggregate: total_milliliters_lost
+    aggregate: total_units_lost
+    aggregate: combined_loss
+    order_by: total_units_lost desc  
+}
